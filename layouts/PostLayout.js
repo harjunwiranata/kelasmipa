@@ -30,7 +30,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
       <article>
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
           <header className="pt-6 xl:pb-6">
-            <div className="space-y-1 text-center">
+            <div className="space-y-1 text-left">
               <dl className="space-y-10">
                 <div>
                   <dt className="sr-only">Published on</dt>
@@ -86,7 +86,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
               </dd>
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">{children}</div>
+              <div className="prose max-w-none pt-10 pb-8 dark:prose-dark text-justify">{children}</div>
               <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
                 <Link href={discussUrl(slug)} rel="nofollow">
                   {'Discuss on Twitter'}
