@@ -1,12 +1,12 @@
 ---
-name: Tails Azimuth
+name: Harjun Y. Wiranata
 avatar: /static/images/avatar.png
 occupation: Professor of Atmospheric Science
 company: Stanford University
 email: address@yoursite.com
-twitter: https://twitter.com/Twitter
+twitter: https://twitter.com/harjunwiranata
 linkedin: https://www.linkedin.com
-github: https://github.com
+github: https://github.com/harjunwiranata
 ---
 
 Tails Azimuth is a professor of atmospheric sciences at the Stanford AI Lab. His research interests includes complexity modelling of tailwinds, headwinds and crosswinds.
