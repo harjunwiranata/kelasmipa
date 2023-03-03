@@ -8,6 +8,7 @@ import siteMetadata from '@/data/siteMetadata'
 import Comments from '@/components/comments'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import InArticle from '@/components/adsense/InArticle'
+import Adsense from '@/components/adsense/Source'
 
 const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`
 const discussUrl = (slug) =>
@@ -27,6 +28,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
         authorDetails={authorDetails}
         {...frontMatter}
       />
+      <Adsense />
       <ScrollTopAndComment />
       <article>
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
@@ -34,7 +36,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
             <div className="space-y-1 text-left">
               <dl className="space-y-10">
                 <div>
-                  <dt className="sr-only">Published on</dt>
+                  <dt className="sr-only">Diterbitkan pada</dt>
                   <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                     <time dateTime={date}>
                       {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
@@ -67,7 +69,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                         />
                       )}
                       <dl className="whitespace-nowrap text-sm font-medium leading-5">
-                        <dt className="sr-only">Name</dt>
+                        <dt className="sr-only">Nama</dt>
                         <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
                         <dt className="sr-only">Twitter</dt>
                         <dd>
