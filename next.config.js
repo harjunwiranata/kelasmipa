@@ -11,7 +11,7 @@ const ContentSecurityPolicy = `
   media-src 'none';
   connect-src *;
   font-src 'self';
-  frame-src giscus.app;
+  frame-src giscus.app *.googleadservices.com *.googletagmanager.com *.googletagservices.com *.googlesyndication.com *.google-analytics.com *.googleapis.com *.ggpht.com *.google.com *.google.co.id *.gstatic.com *.doubleclick.net;
 `
 
 const securityHeaders = [
@@ -72,7 +72,7 @@ module.exports = withBundleAnalyzer({
       use: ['@svgr/webpack'],
     })
 
-    if (!dev && !isServer) {
+    /*if (!dev && !isServer) {
       // Replace React with Preact only in client production build
       Object.assign(config.resolve.alias, {
         'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
@@ -80,7 +80,7 @@ module.exports = withBundleAnalyzer({
         'react-dom/test-utils': 'preact/test-utils',
         'react-dom': 'preact/compat',
       })
-    }
+    }*/
 
     return config
   },
