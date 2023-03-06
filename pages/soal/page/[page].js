@@ -1,7 +1,7 @@
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
-import { getAllFilesFrontMatter } from '@/lib/mdx'
 import ListLayout from '@/layouts/ListLayout'
+import { getAllFilesFrontMatter } from '@/lib/mdx-sanity'
 import { POSTS_PER_PAGE } from '../../soal'
 
 export async function getStaticPaths() {
@@ -49,7 +49,7 @@ export default function PostPage({ posts, initialDisplayPosts, pagination }) {
         posts={posts}
         initialDisplayPosts={initialDisplayPosts}
         pagination={pagination}
-        title="Latihan Soal"
+        title="Soal"
       />
     </>
   )

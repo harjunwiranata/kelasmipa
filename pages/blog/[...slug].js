@@ -2,16 +2,17 @@ import fs from 'fs'
 import PageTitle from '@/components/PageTitle'
 import generateRss from '@/lib/generate-rss'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
-import { formatSlug, getAllFilesFrontMatter, getFileBySlug, getFiles } from '@/lib/mdx'
+import { formatSlug, getAllFilesFrontMatter, getMdxBySlug, getMdx } from '@/lib/mdx-sanity'
+import { getFileBySlug } from '@/lib/mdx'
 
 const DEFAULT_LAYOUT = 'PostLayout'
 
 export async function getStaticPaths() {
-  const posts = getFiles('blog')
+  const posts = await getMdx('blog')
   return {
     paths: posts.map((p) => ({
       params: {
-        slug: formatSlug(p).split('/'),
+        slug: [formatSlug(p.slug.current)],
       },
     })),
     fallback: false,
@@ -23,7 +24,7 @@ export async function getStaticProps({ params }) {
   const postIndex = allPosts.findIndex((post) => formatSlug(post.slug) === params.slug.join('/'))
   const prev = allPosts[postIndex + 1] || null
   const next = allPosts[postIndex - 1] || null
-  const post = await getFileBySlug('blog', params.slug.join('/'))
+  const post = await getMdxBySlug(params.slug[0])
   const authorList = post.frontMatter.authors || ['default']
   const authorPromise = authorList.map(async (author) => {
     const authorResults = await getFileBySlug('authors', [author])
